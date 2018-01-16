@@ -1,0 +1,93 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title Premier League 17/18
+        link(rel='stylesheet', type='text/css', href='../style.css')
+        link(rel='stylesheet', type='text/css', href='/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+
+    body
+
+        nav.navbar.navbar-inverse
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='#') EPL
+                ul.nav.navbar-nav
+                    li
+                        a(href='/') Home
+                    li
+                        a(href='/fixtures') Fixtures
+                    li.active
+                        a(href='#') Teams
+
+        .container.is-fluid
+            .section.columns
+                .headerBox
+                    img.image.img-responsive(src=teams.crestUrl)
+                    h2= teams.name
+
+        .container
+            #content
+                ul#tabs.nav.nav-tabs(data-tabs='tabs')
+                    li.active
+                        a(href='#fixtures', data-toggle='tab') Fixtures
+                    li
+                        a(href='#results', data-toggle='tab') Results
+                    li
+                        a(href='#players', data-toggle='tab') Squad
+
+            #my-tab-content.tab-content
+                #fixtures.tab-pane.active
+                    table.table.is-striped.is-bordered.is-narrow
+                        thead.thead-dark
+                            tr
+                                th Home
+                                th Away
+                                th Date
+
+                        tbody
+                            for item in fixtures
+                                tr
+                                td= item.homeTeam
+                                td= item.awayTeam
+                                td= item.date
+
+                #results.tab-pane
+                    table.table.is-striped.is-bordered.is-narrow.inverse
+                        thead
+                            tr
+                                th Home
+                                th H
+                                th A
+                                th Away
+                                th Date
+
+                        tbody
+                            for item in results
+                                tr
+                                td= item.homeTeam
+                                td= item.goalsHomeTeam
+                                td= item.goalsAwayTeam
+                                td= item.awayTeam
+                                td= item.date
+
+                #players.tab-pane
+                    table.table.is-striped.is-bordered.is-narrow
+                        thead
+                            tr
+                                th Name
+                                th Position
+                                th Jersey Number
+                                th Nationality
+
+                        tbody
+                            for item in players
+                                tr
+                                td= item.playerName
+                                td= item.playerPosition
+                                td= item.jerseyNumber
+                                td= item.nationality
+
+        script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')

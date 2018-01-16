@@ -1,0 +1,16 @@
+{
+  "name": "Premier League App",
+  "version": "1.0.0",
+  "description": "Assignment 1 for frontend frameworks",
+  "main": "server.js",
+  "scripts": {
+    "test": "no test specified"
+  },
+  "author": "Killian Nolan",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4"
+  }
+}

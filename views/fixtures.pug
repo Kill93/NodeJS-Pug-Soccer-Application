@@ -1,0 +1,42 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title Premier League 17/18
+        link(rel='stylesheet', type='text/css', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', type='text/css', href='style.css')
+    body
+        nav.navbar.navbar-inverse
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='#') EPL
+                ul.nav.navbar-nav
+                    li
+                        a(href='/') Home
+                    li.active
+                        a(href='#') Fixtures
+                    li
+                        a(href='/all_teams') Teams
+
+        .container.is-fluid
+            .section.columns
+                .column.is-8.is-offset-2
+                    img.image.img-responsive(src="/PL.png")
+                    h2.has-text-centered Fixtures 2017/2018
+                    #fixtures
+                        table.table.is-striped.is-bordered.is-narrow
+                            thead
+                                tr
+                                    th Home
+                                    th Away
+                                    th Matchday
+                                    th Date
+
+                            tbody
+                                for item in fixtures
+                                    tr
+                                    td= item.homeTeam
+                                    td= item.awayTeam
+                                    td= item.matchday
+                                    td= item.date
+
